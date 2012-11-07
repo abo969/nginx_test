@@ -1,0 +1,16 @@
+﻿digraph main {
+    main -> ngx_get_options;
+    main -> ngx_time_init;
+      ngx_time_init -> ngx_time_update;
+    main -> ngx_log_init;
+    main -> ngx_save_argv;
+    main -> ngx_process_options;
+    main -> ngx_os_init;
+    main -> ngx_crc32_table_init;
+    main -> ngx_add_inherited_sockets;
+      ngx_add_inherited_sockets -> ngx_set_inherited_sockets;
+    main -> ngx_init_cycle;
+    main -> ngx_init_signals;
+    main -> ngx_daemon;
+    main -> ngx_master_process_cycle
+}

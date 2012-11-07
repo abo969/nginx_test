@@ -1,0 +1,77 @@
+# ./ngx_list_t_test
+--------------------------------
+create a new pool:
+--------------------------------
+pool = 0x9208020
+  .d
+    .last = 0x9208048
+    .end = 0x9208420
+    .next = 0x0
+    .failed = 0
+  .max = 984
+  .current = 0x9208020
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 984
+
+--------------------------------
+alloc an list from the pool:
+--------------------------------
+pool = 0x9208020
+  .d
+    .last = 0x9208078
+    .end = 0x9208420
+    .next = 0x0
+    .failed = 0
+  .max = 984
+  .current = 0x9208020
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 936
+
+--------------------------------
+the list information:
+--------------------------------
+list = 0x9208048
+  .last = 0x9208098
+  .part = 0x920804c
+  .size = 4
+  .nalloc = 5
+  .pool = 0x9208020
+
+elements:
+  .part = 0x920804c
+    .elts = 0x9208064  (0x1, 0x2, 0x3, 0x4, 0x5)
+    .nelts = 5
+    .next = 0x9208078 -->
+ 
+  .part = 0x920804c
+    .elts = 0x9208084  (0x6, 0x7, 0x8, 0x9, 0xa)
+    .nelts = 5
+    .next = 0x9208098 -->
+ 
+  .part = 0x920804c
+    .elts = 0x92080a4  (0xb, 0xc, 0xd, 0xe, 0xf)
+    .nelts = 5
+    .next = 0x0 
+
+--------------------------------
+the pool at the end:
+--------------------------------
+pool = 0x9208020
+  .d
+    .last = 0x92080b8
+    .end = 0x9208420
+    .next = 0x0
+    .failed = 0
+  .max = 984
+  .current = 0x9208020
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 872

@@ -1,0 +1,56 @@
+# ./ngx_queue_t_test
+--------------------------------
+create a new pool:
+--------------------------------
+pool = 0x8bcf020
+  .d
+    .last = 0x8bcf048
+    .end = 0x8bcf420
+    .next = 0x0
+    .failed = 0
+  .max = 984
+  .current = 0x8bcf020
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 984
+
+--------------------------------
+alloc a queue head and nodes :
+--------------------------------
+(0x8bcf048: (0x8bcf058, 0x8bcf0a8)) <==> 
+(0x8bcf050: (10, 1 ), 0x8bcf058: (0x8bcf068, 0x8bcf048)) <==> 
+(0x8bcf060: (20, 9 ), 0x8bcf068: (0x8bcf078, 0x8bcf058)) <==> 
+(0x8bcf070: (9 , 9 ), 0x8bcf078: (0x8bcf088, 0x8bcf068)) <==> 
+(0x8bcf080: (90, 80), 0x8bcf088: (0x8bcf098, 0x8bcf078)) <==> 
+(0x8bcf090: (5 , 3 ), 0x8bcf098: (0x8bcf0a8, 0x8bcf088)) <==> 
+(0x8bcf0a0: (50, 20), 0x8bcf0a8: (0x8bcf048, 0x8bcf098)) <==> 
+
+--------------------------------
+sort the queue:
+--------------------------------
+(0x8bcf048: (0x8bcf088, 0x8bcf098)) <==> 
+(0x8bcf090: (5 , 3 ), 0x8bcf098: (0x8bcf048, 0x8bcf078)) <==> 
+(0x8bcf070: (9 , 9 ), 0x8bcf078: (0x8bcf098, 0x8bcf058)) <==> 
+(0x8bcf050: (10, 1 ), 0x8bcf058: (0x8bcf078, 0x8bcf068)) <==> 
+(0x8bcf060: (20, 9 ), 0x8bcf068: (0x8bcf058, 0x8bcf0a8)) <==> 
+(0x8bcf0a0: (50, 20), 0x8bcf0a8: (0x8bcf068, 0x8bcf088)) <==> 
+(0x8bcf080: (90, 80), 0x8bcf088: (0x8bcf0a8, 0x8bcf048)) <==> 
+
+--------------------------------
+the pool at the end:
+--------------------------------
+pool = 0x8bcf020
+  .d
+    .last = 0x8bcf0b0
+    .end = 0x8bcf420
+    .next = 0x0
+    .failed = 0
+  .max = 984
+  .current = 0x8bcf020
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 880

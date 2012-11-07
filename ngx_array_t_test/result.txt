@@ -1,0 +1,42 @@
+# ./ngx_array_t_test
+--------------------------------
+create a new pool:
+--------------------------------
+pool = 0x860b020
+  .d
+    .last = 0x860b048
+    .end = 0x860b420
+    .next = 0x0
+    .failed = 0
+  .max = 984
+  .current = 0x860b020
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 984
+
+--------------------------------
+alloc an array from the pool:
+--------------------------------
+pool = 0x860b020
+  .d
+    .last = 0x860b084
+    .end = 0x860b420
+    .next = 0x0
+    .failed = 0
+  .max = 984
+  .current = 0x860b020
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 924
+
+array = 0x860b048
+  .elts = 0x860b05c
+  .nelts = 10
+  .size = 4
+  .nalloc = 10
+  .pool = 0x860b020
+elements: 0x1  0x2  0x3  0x4  0x5  0x6  0x7  0x8  0x9  0xa  

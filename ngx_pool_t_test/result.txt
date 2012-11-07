@@ -1,0 +1,110 @@
+# ./ngx_pool_t_test
+--------------------------------
+create a new pool:
+--------------------------------
+pool = 0x8922020
+  .d
+    .last = 0x8922048
+    .end = 0x8922420
+    .next = 0x0
+    .failed = 0
+  .max = 984
+  .current = 0x8922020
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 984
+
+--------------------------------
+alloc block 1 from the pool:
+--------------------------------
+pool = 0x8922020
+  .d
+    .last = 0x8922248
+    .end = 0x8922420
+    .next = 0x0
+    .failed = 0
+  .max = 984
+  .current = 0x8922020
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 472
+
+--------------------------------
+alloc block 2 from the pool:
+--------------------------------
+pool = 0x8922020
+  .d
+    .last = 0x8922248
+    .end = 0x8922420
+    .next = 0x8922450
+    .failed = 0
+  .max = 984
+  .current = 0x8922020
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 472
+
+pool = 0x8922450
+  .d
+    .last = 0x8922660
+    .end = 0x8922850
+    .next = 0x0
+    .failed = 0
+  .max = 0
+  .current = 0x0
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 496
+
+--------------------------------
+alloc block 3 from the pool :
+--------------------------------
+pool = 0x8922020
+  .d
+    .last = 0x8922248
+    .end = 0x8922420
+    .next = 0x8922450
+    .failed = 1
+  .max = 984
+  .current = 0x8922020
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 472
+
+pool = 0x8922450
+  .d
+    .last = 0x8922660
+    .end = 0x8922850
+    .next = 0x8922880
+    .failed = 0
+  .max = 0
+  .current = 0x0
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 496
+
+pool = 0x8922880
+  .d
+    .last = 0x8922a90
+    .end = 0x8922c80
+    .next = 0x0
+    .failed = 0
+  .max = 0
+  .current = 0x0
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 496

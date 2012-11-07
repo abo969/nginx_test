@@ -1,0 +1,16 @@
+digraph ngx_init_cycle {
+    ngx_init_cycle -> ngx_timezone_update;
+    ngx_init_cycle -> ngx_time_update;
+    ngx_init_cycle -> ngx_conf_param;
+    ngx_init_cycle -> ngx_core_module_create_conf;
+    ngx_init_cycle -> ngx_conf_parse;
+	  ngx_conf_parse -> ngx_conf_read_token;
+	  ngx_conf_parse -> ngx_conf_handler;
+    ngx_init_cycle -> ngx_core_module_init_conf;
+	ngx_init_cycle -> ngx_conf_open_file;
+	  ngx_conf_open_file -> ngx_conf_full_name;
+	    ngx_conf_full_name -> ngx_conf_test_full_name;
+    ngx_init_cycle -> ngx_open_listening_sockets;
+    ngx_init_cycle -> ngx_configure_listening_sockets;
+    ngx_init_cycle -> ngx_event_module_init
+}

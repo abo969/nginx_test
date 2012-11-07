@@ -1,0 +1,99 @@
+# ./ngx_hash_t_test
+--------------------------------
+create a new pool:
+--------------------------------
+pool = 0x8870020
+  .d
+    .last = 0x8870048
+    .end = 0x8870420
+    .next = 0x0
+    .failed = 0
+  .max = 984
+  .current = 0x8870020
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 984
+
+--------------------------------
+create and add urls to it:
+--------------------------------
+array = 0x8870048
+  .elts = 0x887005c
+  .nelts = 7
+  .size = 16
+  .nalloc = 7
+  .pool = 0x8870020
+  elements:
+    0x887005c: {key = ("www.baidu.com"  , 13), key_hash = 270263191 , value = "220.181.111.147"}
+    0x887006c: {key = ("www.sina.com.cn", 15), key_hash = 1528635686, value = "58.63.236.35"   }
+    0x887007c: {key = ("www.google.com" , 14), key_hash = -702889725, value = "74.125.71.105"  }
+    0x887008c: {key = ("www.qq.com"     , 10), key_hash = 203430122 , value = "60.28.14.190"   }
+    0x887009c: {key = ("www.163.com"    , 11), key_hash = -640386838, value = "123.103.14.237" }
+    0x88700ac: {key = ("www.sohu.com"   , 12), key_hash = 1313636595, value = "219.234.82.50"  }
+    0x88700bc: {key = ("www.abo321.org" , 14), key_hash = 1884209457, value = "117.40.196.26"  }
+
+--------------------------------
+the pool:
+--------------------------------
+pool = 0x8870020
+  .d
+    .last = 0x88700cc
+    .end = 0x8870420
+    .next = 0x0
+    .failed = 0
+  .max = 984
+  .current = 0x8870020
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 852
+
+--------------------------------
+the hash:
+--------------------------------
+hash = 0x88700cc: **buckets = 0x88700d8, size = 3
+  0x88700d8: buckets[0] = 0x8870100
+  0x88700dc: buckets[1] = 0x8870140
+  0x88700e0: buckets[2] = 0x8870180
+
+  buckets 1: 0x8870140: {value = "220.181.111.147", len = 13, name = "www.baidu.com"  }
+  buckets 2: 0x8870180: {value = "58.63.236.35"   , len = 15, name = "www.sina.com.cn"}
+  buckets 1: 0x8870154: {value = "74.125.71.105"  , len = 14, name = "www.google.com" }
+  buckets 2: 0x8870198: {value = "60.28.14.190"   , len = 10, name = "www.qq.com"     }
+  buckets 0: 0x8870100: {value = "123.103.14.237" , len = 11, name = "www.163.com"    }
+  buckets 0: 0x8870114: {value = "219.234.82.50"  , len = 12, name = "www.sohu.com"   }
+  buckets 0: 0x8870128: {value = "117.40.196.26"  , len = 14, name = "www.abo321.org" }
+
+--------------------------------
+the pool:
+--------------------------------
+pool = 0x8870020
+  .d
+    .last = 0x88701c4
+    .end = 0x8870420
+    .next = 0x0
+    .failed = 0
+  .max = 984
+  .current = 0x8870020
+  .chain = 0x0
+  .large = 0x0
+  .cleanup = 0x0
+  .log = 0x0
+available pool memory = 604
+
+--------------------------------
+find test:
+--------------------------------
+(url = "www.baidu.com"  , key = 270263191 ) found, (ip = "220.181.111.147")
+(url = "www.sina.com.cn", key = 1528635686) found, (ip = "58.63.236.35")
+(url = "www.google.com" , key = -702889725) found, (ip = "74.125.71.105")
+(url = "www.qq.com"     , key = 203430122 ) found, (ip = "60.28.14.190")
+(url = "www.163.com"    , key = -640386838) found, (ip = "123.103.14.237")
+(url = "www.sohu.com"   , key = 1313636595) found, (ip = "219.234.82.50")
+(url = "www.abo321.org" , key = 1884209457) found, (ip = "117.40.196.26")
+
+(url = "www.china.com"  , key = -1954599725) not found!
+(url = "www.csdn.net"   , key = -1667448544) not found!
